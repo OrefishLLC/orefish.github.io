@@ -4,287 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Orefish LLC</title>
-    <meta name="description" content="Terms of Service for Orefish LLC iOS applications.">
+    <meta name="description" content="Terms of Service for Orefish LLC games, including One More Push.">
     <link rel="icon" type="image/png" href="/favicon.png">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --primary-dark: #5a67d8;
-            --secondary: #764ba2;
-            --text-dark: #1a202c;
-            --text-light: #4a5568;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-            --warning: #ffc107;
-            --warning-bg: #fff3cd;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 260px;
-            height: 120px;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-        }
-
-        .site-title {
-            font-size: 2em;
-            font-weight: 700;
-        }
-
-        .page-title {
-            font-size: 1.3em;
-            opacity: 0.95;
-            font-weight: 300;
-            margin-top: 10px;
-        }
-
-        /* Breadcrumb Navigation */
-        .breadcrumb {
-            background: white;
-            padding: 20px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .breadcrumb-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.95em;
-        }
-
-        .breadcrumb-nav a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .breadcrumb-nav a:hover {
-            opacity: 0.7;
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-light);
-        }
-
-        /* Content */
-        .legal-content {
-            background: white;
-            padding: 60px 0;
-            min-height: 60vh;
-        }
-
-        .legal-content h1 {
-            color: var(--text-dark);
-            margin-bottom: 15px;
-            font-size: 2.5em;
-        }
-
-        .legal-content h2 {
-            color: var(--primary);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--bg-light);
-        }
-
-        .legal-content p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .last-updated {
-            display: inline-block;
-            color: var(--text-light);
-            font-size: 0.9em;
-            padding: 8px 16px;
-            background: var(--bg-light);
-            border-radius: 20px;
-            margin-bottom: 40px;
-        }
-
-        /* Warning Box */
-        .warning-box {
-            background: var(--warning-bg);
-            border: 2px solid var(--warning);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            position: relative;
-        }
-
-        .warning-box::before {
-            content: '⚠️';
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            font-size: 24px;
-        }
-
-        .warning-box strong {
-            color: var(--text-dark);
-            display: block;
-            margin-bottom: 8px;
-            padding-left: 35px;
-        }
-
-        .warning-box p {
-            padding-left: 35px;
-            margin: 0;
-            color: var(--text-dark);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            color: white;
-            padding: 60px 0 40px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        .email-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
-            font-size: 15px;
-            font-family: inherit;
-        }
-
-        .email-button:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
-        }
-
-        .email-button.copied {
-            background: #48bb78;
-            border-color: #48bb78;
-        }
-
-        .copyright {
-            margin-top: 30px;
-            opacity: 0.6;
-            font-size: 0.9em;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .legal-content h1 {
-                font-size: 2em;
-            }
-
-            .warning-box {
-                padding: 20px;
-            }
-
-            .warning-box::before {
-                position: static;
-                display: block;
-                margin-bottom: 10px;
-            }
-
-            .warning-box strong,
-            .warning-box p {
-                padding-left: 0;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -306,7 +28,7 @@
         <div class="container">
             <nav class="breadcrumb-nav">
                 <a href="/">Home</a>
-                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-separator">&rsaquo;</span>
                 <span>Terms of Service</span>
             </nav>
         </div>
@@ -316,51 +38,68 @@
     <div class="legal-content">
         <div class="container">
             <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: September 2025</p>
+            <p class="last-updated">Last Updated: June 2026</p>
 
-            <div class="warning-box">
-                <strong>IMPORTANT</strong>
-                <p>These applications provide reference information only. They are NOT legal advice, insurance advice, or professional recommendations. Always consult qualified professionals for your specific situation.</p>
-            </div>
+            <p>These Terms of Service ("Terms") govern your use of the games published by Orefish LLC ("we," "our," or "us"), including <strong>One More Push</strong>. They apply alongside Apple's Licensed Application End User License Agreement (the "Standard EULA"), which is the license under which you obtain our apps from the App Store. For matters of licensing, the Standard EULA controls; these Terms supplement it.</p>
 
             <h2>1. Acceptance of Terms</h2>
-            <p>By downloading or using any application developed by Orefish LLC ("we," "our," or "us"), you agree to be bound by these Terms of Service.</p>
+            <p>By downloading, installing, or using any application published by Orefish LLC, you agree to be bound by these Terms and by Apple's Standard EULA. If you do not agree, do not use the application.</p>
 
-            <h2>2. Description of Service</h2>
-            <p>Our applications provide reference information about insurance requirements, regulatory compliance, and related topics. This information is compiled from publicly available sources.</p>
+            <h2>2. License</h2>
+            <p>We grant you a limited, personal, non-exclusive, non-transferable, revocable license to use our applications for your own personal, non-commercial entertainment, consistent with Apple's Standard EULA and the App Store Usage Rules. Except as those terms permit, you may not copy, modify, reverse engineer, decompile, rent, lease, sell, sublicense, or redistribute the application.</p>
 
-            <h2>3. Disclaimer of Professional Advice</h2>
-            <p>OUR APPLICATIONS DO NOT PROVIDE LEGAL, INSURANCE, OR PROFESSIONAL ADVICE. The information provided is for general reference only. No attorney-client, advisor-client, or other professional relationship is created through use of our applications.</p>
+            <h2>3. In-App Purchases</h2>
+            <p>Some of our games offer optional in-app purchases of digital items, such as cosmetic boulder skins and stickers. The following apply to all in-app purchases:</p>
+            <p>
+                &bull; Purchases are processed entirely by Apple and are tied to your Apple ID. We never receive or store your payment information.<br>
+                &bull; Prices are shown to you before you confirm a purchase and may change over time.<br>
+                &bull; Purchased items are cosmetic. They provide no gameplay or competitive advantage.<br>
+                &bull; We do not sell randomized items, "loot boxes," or mystery contents. You always know exactly what you are buying before you buy it.<br>
+                &bull; Purchases are generally final. All refunds are handled solely by Apple in accordance with Apple's policies. To request a refund, visit reportaproblem.apple.com.<br>
+                &bull; Non-consumable items can be restored on your devices at no additional cost using the in-app "Restore Purchases" option, as long as you are signed in with the Apple ID used to make the purchase.
+            </p>
 
             <h2>4. Disclaimer of Warranties</h2>
-            <p>THE APPLICATION IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.</p>
+            <p>THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not warrant that the application will be uninterrupted or error-free.</p>
 
             <h2>5. Limitation of Liability</h2>
-            <p>IN NO EVENT SHALL OREFISH LLC, ITS MEMBERS, MANAGERS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE APPLICATION.</p>
-            <p>OUR MAXIMUM LIABILITY TO YOU FOR ANY CLAIMS ARISING FROM THE APPLICATION SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE APPLICATION.</p>
+            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL OREFISH LLC, ITS MEMBERS, MANAGERS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE APPLICATION.</p>
+            <p>OUR TOTAL LIABILITY FOR ANY CLAIM ARISING FROM OR RELATING TO THE APPLICATION SHALL NOT EXCEED THE GREATER OF (A) THE TOTAL AMOUNT YOU PAID TO US OR THROUGH THE APPLICATION IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR (B) FIVE U.S. DOLLARS.</p>
 
             <h2>6. Entity Protection</h2>
-            <p>All claims must be brought solely against Orefish LLC, not against any individual member, manager, employee, or affiliate. You waive any right to pierce the corporate veil or pursue individual liability.</p>
+            <p>All claims must be brought solely against Orefish LLC, and not against any individual member, manager, employee, or affiliate. You waive any right to pursue individual liability or to pierce the corporate veil.</p>
 
             <h2>7. Indemnification</h2>
-            <p>You agree to indemnify and hold harmless Orefish LLC and its members from any claims arising from your use of the application or reliance on information provided.</p>
+            <p>You agree to indemnify and hold harmless Orefish LLC and its members from any claims, damages, or expenses arising from your misuse of the application or your violation of these Terms.</p>
 
-            <h2>8. Data Accuracy</h2>
-            <p>Information in our applications may be outdated, incomplete, or incorrect. Laws and regulations change frequently. Always verify information with official sources before making any decisions.</p>
+            <h2>8. Apple-Specific Terms</h2>
+            <p>Because our apps are distributed through Apple's App Store, the following apply, and you acknowledge and agree that:</p>
+            <p>
+                &bull; These Terms are concluded between you and Orefish LLC only, and not with Apple. Orefish LLC, not Apple, is solely responsible for the application and its content.<br>
+                &bull; Apple has no obligation whatsoever to furnish any maintenance or support services for the application.<br>
+                &bull; In the event of any failure of the application to conform to any applicable warranty, you may notify Apple, and Apple may refund the purchase price (if any) for the application; to the maximum extent permitted by law, Apple has no other warranty obligation with respect to the application.<br>
+                &bull; Apple is not responsible for addressing any claims by you or any third party relating to the application, including product liability claims, claims that the application fails to conform to any legal or regulatory requirement, and claims arising under consumer protection, privacy, or similar legislation.<br>
+                &bull; Apple is not responsible for the investigation, defense, settlement, or discharge of any third-party intellectual property infringement claim relating to the application.<br>
+                &bull; You represent that you are not located in a country subject to a U.S. Government embargo or designated as a "terrorist supporting" country, and that you are not listed on any U.S. Government list of prohibited or restricted parties.<br>
+                &bull; Apple and its subsidiaries are third-party beneficiaries of these Terms and, upon your acceptance, will have the right to enforce these Terms against you as a third-party beneficiary.
+            </p>
 
-            <h2>9. Arbitration</h2>
-            <p>Any disputes shall be resolved through binding arbitration in Florida. You waive any right to jury trial or class action lawsuits.</p>
+            <h2>9. Governing Law</h2>
+            <p>These Terms are governed by the laws of the State of Florida, without regard to its conflict-of-law provisions, except that the foregoing does not limit any rights Apple may have under the Standard EULA.</p>
 
-            <h2>10. Governing Law</h2>
-            <p>These Terms shall be governed by Florida law, without regard to conflict of law provisions.</p>
+            <h2>10. Arbitration and Class-Action Waiver</h2>
+            <p>Any dispute arising from these Terms or the application shall be resolved through binding arbitration in Florida. You waive any right to a jury trial and any right to participate in a class action.</p>
 
             <h2>11. Severability</h2>
-            <p>If any provision of these Terms is found unenforceable, the remaining provisions shall continue in full force.</p>
+            <p>If any provision of these Terms is found unenforceable, the remaining provisions shall continue in full force and effect.</p>
 
             <h2>12. Entire Agreement</h2>
-            <p>These Terms constitute the entire agreement between you and Orefish LLC regarding use of our applications.</p>
+            <p>These Terms, together with Apple's Standard EULA and our Privacy Policy, constitute the entire agreement between you and Orefish LLC regarding use of our applications.</p>
 
-            <h2>13. Contact Information</h2>
+            <h2>13. Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. The current version is always indicated by the "Last Updated" date above.</p>
+
+            <h2>14. Contact</h2>
             <p>For questions about these Terms, contact us at:</p>
             <p>
                 Email: support@orefish.com<br>
@@ -378,16 +117,14 @@
                     <a href="/privacy">Privacy Policy</a>
                     <a href="/support">Support</a>
                 </div>
-                
                 <button class="email-button" onclick="copyEmail()" id="emailButton">
                     <span id="emailText">support@orefish.com</span>
                     <svg id="copyIcon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
                     </svg>
                 </button>
-                
                 <p class="copyright">
-                    © 2025 Orefish LLC. All rights reserved.<br>
+                    &copy; 2026 Orefish LLC. All rights reserved.<br>
                     <small style="opacity: 0.8;">Orefish LLC is a Florida limited liability company</small>
                 </p>
             </div>
@@ -395,26 +132,21 @@
     </footer>
 
     <script>
-        // Email copy functionality
         function copyEmail() {
             const email = 'support@orefish.com';
             const button = document.getElementById('emailButton');
             const text = document.getElementById('emailText');
             const icon = document.getElementById('copyIcon');
-            
             navigator.clipboard.writeText(email).then(() => {
                 button.classList.add('copied');
                 text.textContent = 'Copied!';
                 icon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
-                
                 setTimeout(() => {
                     button.classList.remove('copied');
                     text.textContent = email;
                     icon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
                 }, 2000);
-            }).catch(() => {
-                window.location.href = `mailto:${email}`;
-            });
+            }).catch(() => { window.location.href = `mailto:${email}`; });
         }
     </script>
 </body>

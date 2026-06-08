@@ -4,320 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Orefish LLC</title>
-    <meta name="description" content="Support and FAQ for Orefish LLC iOS applications.">
+    <meta name="description" content="Support and FAQ for Orefish LLC games, including One More Push.">
     <link rel="icon" type="image/png" href="/favicon.png">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --primary-dark: #5a67d8;
-            --secondary: #764ba2;
-            --text-dark: #1a202c;
-            --text-light: #4a5568;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 260px;
-            height: 120px;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-        }
-
-        .site-title {
-            font-size: 2em;
-            font-weight: 700;
-        }
-
-        .page-title {
-            font-size: 1.3em;
-            opacity: 0.95;
-            font-weight: 300;
-            margin-top: 10px;
-        }
-
-        /* Breadcrumb Navigation */
-        .breadcrumb {
-            background: white;
-            padding: 20px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .breadcrumb-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.95em;
-        }
-
-        .breadcrumb-nav a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .breadcrumb-nav a:hover {
-            opacity: 0.7;
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-light);
-        }
-
-        /* Content */
-        .support-content {
-            background: white;
-            padding: 60px 0;
-            min-height: 60vh;
-        }
-
-        .support-content h1 {
-            color: var(--text-dark);
-            margin-bottom: 40px;
-            font-size: 2.5em;
-        }
-
-        .support-content h2 {
-            color: var(--primary);
-            margin-top: 40px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 50px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-details {
-            flex: 1;
-        }
-
-        .contact-details strong {
-            display: block;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-        }
-
-        .contact-details span {
-            color: var(--text-light);
-            font-size: 0.95em;
-        }
-
-        /* FAQ Section */
-        .faq-item {
-            background: var(--bg-light);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .faq-item:hover {
-            background: white;
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-
-        .faq-question {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .faq-number {
-            width: 30px;
-            height: 30px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9em;
-            flex-shrink: 0;
-        }
-
-        .faq-item h3 {
-            color: var(--text-dark);
-            font-size: 1.1em;
-            margin: 0;
-            flex: 1;
-        }
-
-        .faq-item p {
-            color: var(--text-light);
-            line-height: 1.7;
-            padding-left: 45px;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            color: white;
-            padding: 60px 0 40px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        .email-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
-            font-size: 15px;
-            font-family: inherit;
-        }
-
-        .email-button:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
-        }
-
-        .email-button.copied {
-            background: #48bb78;
-            border-color: #48bb78;
-        }
-
-        .copyright {
-            margin-top: 30px;
-            opacity: 0.6;
-            font-size: 0.9em;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .support-content h1 {
-                font-size: 2em;
-            }
-
-            .faq-item p {
-                padding-left: 0;
-                margin-top: 15px;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -339,7 +28,7 @@
         <div class="container">
             <nav class="breadcrumb-nav">
                 <a href="/">Home</a>
-                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-separator">&rsaquo;</span>
                 <span>Support</span>
             </nav>
         </div>
@@ -349,7 +38,7 @@
     <div class="support-content">
         <div class="container">
             <h1>Support</h1>
-            
+
             <!-- Contact Section -->
             <div class="contact-section">
                 <h2 style="margin-top: 0;">Contact Us</h2>
@@ -379,45 +68,61 @@
 
             <!-- FAQ Section -->
             <h2>Frequently Asked Questions</h2>
-            
+
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number">1</div>
-                    <h3>Is this app legal or insurance advice?</h3>
+                    <h3>Does One More Push collect my data?</h3>
                 </div>
-                <p>No. Our apps provide reference information only. Always consult qualified professionals for your specific situation.</p>
+                <p>No. Our games collect no personal data and have no accounts, no ads, and no analytics. Everything you do stays on your device and your own iCloud.</p>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number">2</div>
-                    <h3>How current is the information?</h3>
+                    <h3>How is my progress saved and synced?</h3>
                 </div>
-                <p>We update information periodically, but laws and regulations change frequently. Always verify with official sources.</p>
+                <p>Your progress is saved on your device and synced through your personal iCloud, so it appears automatically on your other devices signed in to the same Apple ID. Nothing is ever sent to us.</p>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number">3</div>
-                    <h3>Do you collect my data?</h3>
+                    <h3>How do in-app purchases work?</h3>
                 </div>
-                <p>No. Our apps work entirely offline and collect no user data.</p>
+                <p>Some games offer optional one-time purchases of cosmetic items, such as boulder skins and stickers. Purchases are processed by Apple, tied to your Apple ID, and are permanent once bought. There are no randomized or "loot box" items — you always know exactly what you're getting.</p>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number">4</div>
-                    <h3>Can I rely on this information for business decisions?</h3>
+                    <h3>I reinstalled the app or got a new device. How do I get my purchases back?</h3>
                 </div>
-                <p>Our apps are reference tools only. Verify all information with official sources and consult appropriate professionals before making business decisions.</p>
+                <p>Open the game's Settings and tap "Restore Purchases" while signed in with the same Apple ID you used to buy them. Your cosmetic items will be restored at no additional cost.</p>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number">5</div>
-                    <h3>I found incorrect information. What should I do?</h3>
+                    <h3>Can I get a refund?</h3>
                 </div>
-                <p>Please email us at support@orefish.com with details. However, remember that you should always verify information independently.</p>
+                <p>Refunds for in-app purchases are handled by Apple. You can request one at reportaproblem.apple.com.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-number">6</div>
+                    <h3>I found a bug or have a suggestion.</h3>
+                </div>
+                <p>We'd love to hear it. Email support@orefish.com with as much detail as you can, and we'll usually reply within 48 hours.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <div class="faq-number">7</div>
+                    <h3>Where can I read the privacy policy and terms?</h3>
+                </div>
+                <p>They're linked inside the app and here on our site: see our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
             </div>
         </div>
     </div>
@@ -431,16 +136,14 @@
                     <a href="/privacy">Privacy Policy</a>
                     <a href="/terms">Terms of Service</a>
                 </div>
-                
                 <button class="email-button" onclick="copyEmail()" id="emailButton">
                     <span id="emailText">support@orefish.com</span>
                     <svg id="copyIcon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
                     </svg>
                 </button>
-                
                 <p class="copyright">
-                    © 2025 Orefish LLC. All rights reserved.<br>
+                    &copy; 2026 Orefish LLC. All rights reserved.<br>
                     <small style="opacity: 0.8;">Orefish LLC is a Florida limited liability company</small>
                 </p>
             </div>
@@ -448,26 +151,21 @@
     </footer>
 
     <script>
-        // Email copy functionality
         function copyEmail() {
             const email = 'support@orefish.com';
             const button = document.getElementById('emailButton');
             const text = document.getElementById('emailText');
             const icon = document.getElementById('copyIcon');
-            
             navigator.clipboard.writeText(email).then(() => {
                 button.classList.add('copied');
                 text.textContent = 'Copied!';
                 icon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
-                
                 setTimeout(() => {
                     button.classList.remove('copied');
                     text.textContent = email;
                     icon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
                 }, 2000);
-            }).catch(() => {
-                window.location.href = `mailto:${email}`;
-            });
+            }).catch(() => { window.location.href = `mailto:${email}`; });
         }
     </script>
 </body>

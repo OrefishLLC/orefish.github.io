@@ -4,239 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Orefish LLC</title>
-    <meta name="description" content="Privacy Policy for Orefish LLC iOS applications. We don't collect any user data.">
+    <meta name="description" content="Privacy Policy for Orefish LLC games, including One More Push. We collect no personal data.">
     <link rel="icon" type="image/png" href="/favicon.png">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #667eea;
-            --primary-dark: #5a67d8;
-            --secondary: #764ba2;
-            --text-dark: #1a202c;
-            --text-light: #4a5568;
-            --bg-light: #f7fafc;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 260px;
-            height: 120px;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-        }
-
-        .site-title {
-            font-size: 2em;
-            font-weight: 700;
-        }
-
-        .page-title {
-            font-size: 1.3em;
-            opacity: 0.95;
-            font-weight: 300;
-            margin-top: 10px;
-        }
-
-        /* Breadcrumb Navigation */
-        .breadcrumb {
-            background: white;
-            padding: 20px 0;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .breadcrumb-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 0.95em;
-        }
-
-        .breadcrumb-nav a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .breadcrumb-nav a:hover {
-            opacity: 0.7;
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-light);
-        }
-
-        /* Content */
-        .legal-content {
-            background: white;
-            padding: 60px 0;
-            min-height: 60vh;
-        }
-
-        .legal-content h1 {
-            color: var(--text-dark);
-            margin-bottom: 15px;
-            font-size: 2.5em;
-        }
-
-        .legal-content h2 {
-            color: var(--primary);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--bg-light);
-        }
-
-        .legal-content p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .last-updated {
-            display: inline-block;
-            color: var(--text-light);
-            font-size: 0.9em;
-            padding: 8px 16px;
-            background: var(--bg-light);
-            border-radius: 20px;
-            margin-bottom: 40px;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-            color: white;
-            padding: 60px 0 40px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        .email-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 24px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 12px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
-            font-size: 15px;
-            font-family: inherit;
-        }
-
-        .email-button:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
-        }
-
-        .email-button.copied {
-            background: #48bb78;
-            border-color: #48bb78;
-        }
-
-        .copyright {
-            margin-top: 30px;
-            opacity: 0.6;
-            font-size: 0.9em;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .legal-content h1 {
-                font-size: 2em;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
@@ -258,7 +28,7 @@
         <div class="container">
             <nav class="breadcrumb-nav">
                 <a href="/">Home</a>
-                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-separator">&rsaquo;</span>
                 <span>Privacy Policy</span>
             </nav>
         </div>
@@ -268,47 +38,52 @@
     <div class="legal-content">
         <div class="container">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: September 2025</p>
+            <p class="last-updated">Last Updated: June 2026</p>
+
+            <p>This Privacy Policy applies to the games published by Orefish LLC ("we," "our," or "us"), including <strong>One More Push</strong>. The short version: we do not collect your personal data, and we have no accounts, no ads, and no analytics.</p>
 
             <h2>1. Information We Don't Collect</h2>
-            <p>Our applications, including ComplianceKit, operate entirely offline. We do not collect, store, transmit, or have access to any user data, personal information, or usage patterns.</p>
+            <p>Our games do not collect, store, transmit, or have access to your personal information, identifiers, contacts, location, or usage analytics. We do not maintain servers that receive data from you, and we cannot see how you play.</p>
 
-            <h2>2. Local Storage Only</h2>
-            <p>Any bookmarks, saved items, or preferences remain exclusively on your device. This data is stored locally using your device's storage and is never transmitted to any server or third party.</p>
+            <h2>2. Where Your Progress Is Stored</h2>
+            <p>Your in-game progress — settings, in-game currency, cosmetic items, statistics, and streaks — is saved locally on your device. To keep your progress consistent across your own Apple devices, it is also synced through your personal iCloud account using Apple's iCloud key-value storage. This data stays within your Apple account; it is never sent to us and we cannot access it. You can remove it at any time from within the game or through your device and iCloud settings.</p>
 
-            <h2>3. No Analytics or Tracking</h2>
-            <p>We do not use analytics services, tracking pixels, or any form of user monitoring. We do not track app usage, user behavior, or any other metrics.</p>
+            <h2>3. In-App Purchases</h2>
+            <p>Some games offer optional in-app purchases (for example, cosmetic items). All purchases are processed entirely by Apple through the App Store. We never receive or have access to your payment information. We receive only the anonymous confirmation needed to unlock the item you bought. Apple maintains the record of your purchases on your Apple ID, which is what allows you to restore them on your devices. Apple's handling of purchase data is governed by Apple's own privacy policy.</p>
 
-            <h2>4. No Network Requests</h2>
-            <p>Our apps do not make network requests except when you explicitly tap on external links to visit government websites or other resources.</p>
+            <h2>4. No Analytics, Advertising, or Tracking</h2>
+            <p>We do not use analytics services, advertising networks, tracking pixels, software development kits that collect data, or any form of user monitoring. We do not track your activity across apps or websites, and we do not request the App Tracking Transparency permission because we have nothing to track.</p>
 
-            <h2>5. Third-Party Links</h2>
-            <p>Our apps may contain links to external websites, particularly government resources. These sites have their own privacy policies which we encourage you to review.</p>
+            <h2>5. No Accounts</h2>
+            <p>Our games do not require or offer account creation, login, registration, or any form of personal identification.</p>
 
-            <h2>6. Children's Privacy</h2>
-            <p>Our apps do not collect data from anyone, including children under 13. The apps are intended for professional use.</p>
+            <h2>6. Network Use</h2>
+            <p>Our games are designed to be played offline. The only network activity involves Apple's own services — syncing your progress through your iCloud and processing any in-app purchases through the App Store — and opening external links that you choose to tap, such as this policy, our support page, or the App Store.</p>
 
-            <h2>7. No Account Creation</h2>
-            <p>Our apps do not require or offer account creation, login, or any form of user identification.</p>
+            <h2>7. Children's Privacy</h2>
+            <p>Our games are suitable for general audiences and collect no data from anyone, including children under 13. Because we collect no personal information, we comply with the U.S. Children's Online Privacy Protection Act (COPPA) and similar laws by design.</p>
 
-            <h2>8. Data Security</h2>
-            <p>Since we don't collect any data, there is no data to secure on our servers. Any data stored locally on your device is protected by your device's built-in security measures.</p>
+            <h2>8. Third-Party Links</h2>
+            <p>Our games and this website may contain links to external websites, such as the App Store or our own pages. Those destinations have their own privacy policies, which we encourage you to review.</p>
 
-            <h2>9. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. The updated version will be indicated by an updated "Last Updated" date.</p>
+            <h2>9. Data Security</h2>
+            <p>Because we collect no data, there is nothing for us to secure on any server. Data stored on your device is protected by your device's built-in security, and data synced through iCloud is protected by your Apple account.</p>
 
-            <h2>10. Contact Information</h2>
-            <p>For any questions about this Privacy Policy, please contact us at:</p>
+            <h2>10. California Privacy Rights (CCPA/CPRA)</h2>
+            <p>We do not collect, sell, or share personal information, and therefore have no personal information to disclose, delete, or correct in response to a request under California law.</p>
+
+            <h2>11. European &amp; UK Privacy Rights (GDPR/UK GDPR)</h2>
+            <p>We do not collect or process personal data, so the GDPR and UK GDPR impose no processing obligations on us. Any data handled by Apple in connection with iCloud sync or App Store purchases is processed by Apple as a separate controller under Apple's policies.</p>
+
+            <h2>12. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. The current version is always indicated by the "Last Updated" date above.</p>
+
+            <h2>13. Contact</h2>
+            <p>For any questions about this Privacy Policy, contact us at:</p>
             <p>
                 Email: support@orefish.com<br>
-                Entity: Orefish LLC (Florida)
+                Entity: Orefish LLC, a Florida limited liability company
             </p>
-
-            <h2>11. California Privacy Rights</h2>
-            <p>We do not collect personal information and therefore have no information to provide under CCPA requests.</p>
-
-            <h2>12. European Privacy Rights</h2>
-            <p>We do not collect personal data and therefore GDPR does not apply to our applications.</p>
         </div>
     </div>
 
@@ -321,16 +96,14 @@
                     <a href="/terms">Terms of Service</a>
                     <a href="/support">Support</a>
                 </div>
-                
                 <button class="email-button" onclick="copyEmail()" id="emailButton">
                     <span id="emailText">support@orefish.com</span>
                     <svg id="copyIcon" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
                     </svg>
                 </button>
-                
                 <p class="copyright">
-                    © 2025 Orefish LLC. All rights reserved.<br>
+                    &copy; 2026 Orefish LLC. All rights reserved.<br>
                     <small style="opacity: 0.8;">Orefish LLC is a Florida limited liability company</small>
                 </p>
             </div>
@@ -338,26 +111,21 @@
     </footer>
 
     <script>
-        // Email copy functionality
         function copyEmail() {
             const email = 'support@orefish.com';
             const button = document.getElementById('emailButton');
             const text = document.getElementById('emailText');
             const icon = document.getElementById('copyIcon');
-            
             navigator.clipboard.writeText(email).then(() => {
                 button.classList.add('copied');
                 text.textContent = 'Copied!';
                 icon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
-                
                 setTimeout(() => {
                     button.classList.remove('copied');
                     text.textContent = email;
                     icon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
                 }, 2000);
-            }).catch(() => {
-                window.location.href = `mailto:${email}`;
-            });
+            }).catch(() => { window.location.href = `mailto:${email}`; });
         }
     </script>
 </body>
