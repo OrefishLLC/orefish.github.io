@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orefish, LLC — Independent iOS Apps &amp; Games</title>
+    <title>Orefish, LLC - Independent iOS Apps &amp; Games</title>
     <meta name="description" content="Orefish, LLC builds small, polished iOS games and apps, including One More Push.">
 
     <!-- Open Graph / social preview: controls how a shared orefish.com link looks in iMessage,
          Slack, social apps, etc. TODO: add a real 1200×630 preview image at /og-image.png. -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Orefish, LLC">
-    <meta property="og:title" content="One More Push — an absurd little climb">
-    <meta property="og:description" content="Push a boulder up an endless mountain. A calm, funny incremental game from Orefish, LLC. No ads, no tracking, plays offline.">
+    <meta property="og:title" content="One More Push - an absurd little climb">
+    <meta property="og:description" content="Push a boulder up an endless mountain. A calm, funny incremental game from Orefish, LLC. No ads, no tracking, and offline play.">
     <meta property="og:url" content="https://orefish.com/">
     <meta property="og:image" content="https://orefish.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,9 +55,10 @@
                 <div class="bio">
                     <h2>Will Humphreys</h2>
                     <p class="title">Founder, Orefish LLC</p>
-                    <p>JD from Drake University Law School. I build small iOS games and apps under Orefish, LLC — including One More Push.</p>
+                    <p>I'm a licensed attorney (JD, Drake University Law School) building small iOS games and apps under Orefish, LLC, including One More Push. That background is part of why these games are privacy-first: no ads, no tracking, and no data collection.</p>
                     <div class="credentials">
                         <strong>Education:</strong> JD - Drake University | BBA - University of Central Arkansas<br>
+                        <strong>Bar Admission:</strong> Arkansas<br>
                         <strong>Focus:</strong> iOS Development, Game Design, Business Law
                     </div>
                 </div>
@@ -81,13 +83,25 @@
                     <ul class="app-features">
                         <li>Standard and Endless climbs, with tap, rhythm, or timing controls</li>
                         <li>A balance challenge waiting at every summit</li>
-                        <li>Side games between climbs — stack cairns, skip stones, keep a trail of monuments</li>
+                        <li>Mini games such as stone skipping, stacking, and boulder balancing</li>
                         <li>Decorate your boulder and stone collection with skins, stickers &amp; bands</li>
                         <li>Earn achievements that unlock new cosmetics</li>
                         <li>Living day/night skies, weather, and auroras across multiple worlds</li>
-                        <li>No ads, no tracking, plays offline</li>
+                        <li>No ads, no tracking, and offline play</li>
                     </ul>
                     <span class="app-store-btn" style="cursor: default;">Coming soon to the App Store</span>
+                </div>
+                <div class="screenshot-carousel">
+                    <div class="screenshot-container" id="ompScreens">
+                        <img src="omp-home.png" alt="One More Push home screen" class="screenshot">
+                        <img src="omp-decorate.png" alt="Decorating a boulder" class="screenshot">
+                        <img src="omp-balance.png" alt="The summit balance challenge" class="screenshot">
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
                 </div>
             </div>
 
@@ -195,6 +209,22 @@
                 }, 2000);
             }).catch(() => { window.location.href = `mailto:${email}`; });
         }
+
+        // One More Push screenshot carousel
+        (function () {
+            const container = document.getElementById('ompScreens');
+            if (!container) return;
+            const slides = container.querySelectorAll('.screenshot');
+            const dots = document.querySelectorAll('.carousel-dots .dot');
+            let current = 0;
+            function go(n) {
+                current = (n + slides.length) % slides.length;
+                container.style.transform = 'translateX(-' + (current * 100) + '%)';
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+            dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+            setInterval(() => go(current + 1), 4000);
+        })();
     </script>
 </body>
 </html>
