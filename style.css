@@ -11,12 +11,15 @@
 }
 
 :root {
-    --primary: #667eea;
-    --primary-dark: #5a67d8;
-    --secondary: #764ba2;
-    --text-dark: #1a202c;
-    --text-light: #4a5568;
-    --bg-light: #f7fafc;
+    /* Palette drawn from the game itself: dusk-sky slate, pebble gold,
+       warm paper. (The old #667eea/#764ba2 purple gradient is the single most
+       recognizable "generated site" tell on the internet; retired.) */
+    --primary: #2e4666;        /* dusk slate */
+    --primary-dark: #22344d;   /* night sky */
+    --secondary: #c9973f;      /* pebble gold */
+    --text-dark: #26303d;
+    --text-light: #55606e;
+    --bg-light: #faf7f1;       /* warm paper */
     --white: #ffffff;
     --success: #48bb78;
     --warning: #ffc107;
