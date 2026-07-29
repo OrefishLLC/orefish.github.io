@@ -11,15 +11,12 @@
 }
 
 :root {
-    /* Palette drawn from the game itself: dusk-sky slate, pebble gold,
-       warm paper. (The old #667eea/#764ba2 purple gradient is the single most
-       recognizable "generated site" tell on the internet; retired.) */
-    --primary: #2e4666;        /* dusk slate */
-    --primary-dark: #22344d;   /* night sky */
-    --secondary: #c9973f;      /* pebble gold */
-    --text-dark: #26303d;
-    --text-light: #55606e;
-    --bg-light: #faf7f1;       /* warm paper */
+    --primary: #667eea;
+    --primary-dark: #5a67d8;
+    --secondary: #764ba2;
+    --text-dark: #1a202c;
+    --text-light: #4a5568;
+    --bg-light: #f7fafc;
     --white: #ffffff;
     --success: #48bb78;
     --warning: #ffc107;
@@ -100,8 +97,8 @@ header::before {
 }
 
 .logo {
-    width: 260px;
-    height: 120px;
+    width: 340px;
+    height: 156px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -742,14 +739,20 @@ footer {
 .footer-links a {
     color: white;
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all 0.3s;
     position: relative;
+    padding: 10px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    font-weight: 500;
 }
 
 .footer-links a:hover {
     opacity: 1;
     transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .copyright {
