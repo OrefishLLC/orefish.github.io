@@ -56,7 +56,7 @@
                     <h2>Will Humphreys</h2>
                     <p class="title">Founder, Orefish LLC</p>
                     <p>I'm Will Humphreys, founder of Orefish, LLC. I practice business and compliance law, and I design and develop iOS games.</p>
-                    <p>One More Push: Boulder Climb is the studio's first release. I wrote the code, drew the artwork, and composed the music and sound. Delve Divers, the studio's second title, is a larger production: I lead its design and development, working with dedicated artists and musicians to build out its world.</p>
+                    <p>One More Push: Boulder Climb is the first game I've released. Every line of code, every drawing, every note of music came from my desk. Delve Divers is the next step, in development longer and with much more behind it. I lead the design and direction, with a team of artists, developers, and composers building out a larger world, one meant to grow and evolve over time.</p>
                     <div class="credentials">
                         <strong>Education:</strong> JD, Drake University | BBA, University of Central Arkansas<br>
                         <strong>Bar Admission:</strong> Arkansas<br>
@@ -82,14 +82,12 @@
                     <p class="app-tagline">The impossible summit awaits</p>
                     <p>As Sisyphus did, you push a boulder up a mountain toward an impossible goal. This time, the journey is yours. Travel across seven lands of fantasy and magic, from green foothills to frozen peaks, burning calderas, and starlit voids. Earn Pebbles with every push and spend them on treasures for your only companion in this world: your Boulder.</p>
                     <ul class="app-features">
-                        <li>Standard and Endless climbs, with tap or rhythm controls</li>
-                        <li>A balance challenge at every summit: tilt your phone to steer, or swap to touch any time</li>
-                        <li>Seven living worlds: begin on Green Mountain, then unlock six realms, each with its own weather, music, and life. Auroras over the frozen peaks, embers, marsh wisps, sea spray, rising light, and falling star dust</li>
-                        <li>More than 500 treasures to earn: stickers, bands, and stones, from a humble olive sprig to the Realm Relics</li>
+                        <li>Standard and Endless climbs, with a balance challenge at every summit</li>
+                        <li>Seven living worlds, each with its own weather, music, and life, from auroras to falling star dust</li>
+                        <li>More than 500 treasures to earn: stickers, bands, and stones</li>
                         <li>Camp mini games: stone skipping, stone stacking, and boulder balancing</li>
-                        <li>Achievements that unlock cosmetics of their own</li>
-                        <li>An original synthesized soundtrack and living ambience: crickets, distant thunder, wind that actually moves</li>
-                        <li>Full offline play with no account required; every purchase is cosmetic and plainly priced</li>
+                        <li>An original soundtrack and living ambience in every land</li>
+                        <li>Full offline play with no account required</li>
                     </ul>
                     <span class="app-store-btn" style="cursor: default;">Coming soon to the App Store</span>
                 </div>
@@ -204,7 +202,28 @@
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
             }
             dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
-            setInterval(() => go(current + 1), 4000);
+            let timer = setInterval(() => go(current + 1), 4000);
+            function rearm() {
+                clearInterval(timer);
+                timer = setInterval(() => go(current + 1), 6000);
+            }
+            // Swipe to move ahead and back (touch and mouse drag)
+            let startX = null;
+            const shell = container.parentElement;
+            shell.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            shell.addEventListener('touchend', e => {
+                if (startX === null) return;
+                const dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); rearm(); }
+                startX = null;
+            }, { passive: true });
+            shell.addEventListener('mousedown', e => { startX = e.clientX; e.preventDefault(); });
+            shell.addEventListener('mouseup', e => {
+                if (startX === null) return;
+                const dx = e.clientX - startX;
+                if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); rearm(); }
+                startX = null;
+            });
         })();
     </script>
 </body>
