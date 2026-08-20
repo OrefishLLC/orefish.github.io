@@ -394,6 +394,19 @@ section {
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
+/* Apple's official App Store badge (guidelines: minimum 40px tall, clear space
+   of a quarter of its height on all sides, artwork unmodified). */
+.app-store-badge {
+    display: inline-block;
+    height: 54px;
+    width: auto;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+a:hover > .app-store-badge {
+    transform: translateY(-2px);
+}
+
 .email-button {
     display: inline-flex;
     align-items: center;
