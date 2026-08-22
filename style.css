@@ -33,6 +33,11 @@ html {
     scroll-behavior: smooth;
 }
 
+::selection {
+    background: var(--primary);
+    color: #fff;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
     line-height: 1.6;
@@ -102,7 +107,8 @@ header {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    /* soft shadow lifts the white wordmark off the wave pattern */
+    filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
 
 .logo-text,
@@ -362,7 +368,7 @@ section {
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary);
+    color: var(--secondary);   /* red checks, the crest accent */
     font-weight: bold;
     font-size: 1.2em;
 }
@@ -475,7 +481,7 @@ a:hover > .app-store-badge {
 }
 
 .dot.active {
-    background: white;
+    background: var(--secondary);   /* the crest red marks the active slide */
     width: 24px;
     border-radius: 4px;
 }
@@ -725,7 +731,10 @@ a:hover > .app-store-badge {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #063A5C 0%, #032138 100%);
+    /* The header's wave field returns beneath a deep navy wash, closing the
+       page with the same water it opened on. */
+    background: linear-gradient(135deg, rgba(6, 58, 92, 0.93) 0%, rgba(3, 33, 56, 0.95) 100%),
+                url('header-bg.png') center / cover no-repeat #032138;
     color: white;
     padding: 60px 0 40px;
     margin-top: 80px;
