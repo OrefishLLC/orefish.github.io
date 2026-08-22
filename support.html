@@ -198,7 +198,7 @@
         <div class="secret-card" role="dialog" aria-label="A secret code">
             <h3>The FAQ knew!</h3>
             <p>The question about codes was holding one all along. Enter this in One More Push under Settings, Redeem Code:</p>
-            <span class="secret-code">LANTERN-SCREE-9147</span>
+            <span class="secret-code"></span>
             <p class="secret-hint">One of six secrets hiding where Orefish things live.</p>
             <button class="secret-close" id="secretClose">Keep it secret</button>
         </div>
@@ -208,7 +208,11 @@
             const num = document.getElementById('faqSecretNum');
             const scrim = document.getElementById('secretScrim');
             if (!num || !scrim) return;
-            num.addEventListener('click', () => scrim.classList.add('open'));
+            num.addEventListener('click', () => {
+                // decoded only on discovery (kept out of the raw page source)
+                scrim.querySelector('.secret-code').textContent = atob('TEFOVEVSTi1TQ1JFRS05MTQ3');
+                scrim.classList.add('open');
+            });
             document.getElementById('secretClose').addEventListener('click', () => scrim.classList.remove('open'));
             scrim.addEventListener('click', (e) => { if (e.target === scrim) scrim.classList.remove('open'); });
         })();

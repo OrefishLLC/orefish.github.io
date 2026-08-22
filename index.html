@@ -178,7 +178,7 @@
         <div class="secret-card" role="dialog" aria-label="A secret code">
             <h3>You found a secret!</h3>
             <p>The Boulder appreciates a curious mind. Enter this code in One More Push under Settings, Redeem Code:</p>
-            <span class="secret-code">MOSS-TIDE-4821</span>
+            <span class="secret-code"></span>
             <p class="secret-hint">One of six secrets hiding where Orefish things live: two inside the app, two on this site, two guarding the golem at delvedivers.com.</p>
             <button class="secret-close" id="secretClose">Keep it secret</button>
         </div>
@@ -190,7 +190,12 @@
             const icon = document.getElementById('ompSecretIcon');
             const scrim = document.getElementById('secretScrim');
             if (!icon || !scrim) return;
-            icon.addEventListener('click', () => scrim.classList.add('open'));
+            icon.addEventListener('click', () => {
+                // decoded only on discovery, so the code never sits in the
+                // page source for view-source readers or search crawlers
+                scrim.querySelector('.secret-code').textContent = atob('TU9TUy1USURFLTQ4MjE=');
+                scrim.classList.add('open');
+            });
             document.getElementById('secretClose').addEventListener('click', () => scrim.classList.remove('open'));
             scrim.addEventListener('click', (e) => { if (e.target === scrim) scrim.classList.remove('open'); });
         })();
