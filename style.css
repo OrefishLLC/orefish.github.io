@@ -11,9 +11,11 @@
 }
 
 :root {
-    --primary: #667eea;
-    --primary-dark: #5a67d8;
-    --secondary: #764ba2;
+    /* Brand palette: the badge navy carries the site, the oarfish crest red
+       is the rare accent (matches the social banners and the O badge). */
+    --primary: #004F82;
+    --primary-dark: #003A61;
+    --secondary: #C23A31;
     --text-dark: #1a202c;
     --text-light: #4a5568;
     --bg-light: #f7fafc;
@@ -54,22 +56,14 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    /* The brand's connected-wave field (header-bg.png, generated alongside
+       the social banners) on the badge navy. */
+    background: var(--primary) url('header-bg.png') center / cover no-repeat;
     color: white;
     padding: 80px 0;
     position: relative;
     overflow: hidden;
     text-align: center;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .header-content {
@@ -160,7 +154,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary);
+    background: var(--secondary);   /* the crest-red underline */
     transition: width 0.3s;
 }
 
@@ -249,7 +243,7 @@ section {
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.1);
+    box-shadow: 0 0 0 8px rgba(0, 79, 130, 0.12);
     transition: transform 0.3s;
 }
 
@@ -327,7 +321,7 @@ section {
     width: 140px;
     height: 140px;
     border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
+    box-shadow: 0 15px 40px rgba(0, 79, 130, 0.25);
     transition: transform 0.3s;
 }
 
@@ -391,7 +385,7 @@ section {
 .app-store-btn:hover {
     background: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 79, 130, 0.3);
 }
 
 /* Apple's official App Store badge (guidelines: minimum 40px tall, clear space
@@ -490,10 +484,10 @@ a:hover > .app-store-badge {
 .coming-soon {
     margin-top: 80px;
     padding: 60px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    background: linear-gradient(135deg, rgba(0, 79, 130, 0.05), rgba(194, 58, 49, 0.05));
     border-radius: 24px;
     text-align: center;
-    border: 2px dashed rgba(102, 126, 234, 0.3);
+    border: 2px dashed rgba(0, 79, 130, 0.3);
 }
 
 .coming-soon h3 {
@@ -638,7 +632,7 @@ a:hover > .app-store-badge {
 
 /* Contact Section */
 .contact-section {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    background: linear-gradient(135deg, rgba(0, 79, 130, 0.05), rgba(194, 58, 49, 0.05));
     border-radius: 16px;
     padding: 30px;
     margin-bottom: 50px;
@@ -731,7 +725,7 @@ a:hover > .app-store-badge {
 
 /* Footer */
 footer {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    background: linear-gradient(135deg, #063A5C 0%, #032138 100%);
     color: white;
     padding: 60px 0 40px;
     margin-top: 80px;
