@@ -128,7 +128,7 @@
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <div class="faq-number">8</div>
+                    <div class="faq-number" id="faqSecretNum">8</div>
                     <h3>What are promo codes and where do I find them?</h3>
                 </div>
                 <p>Promo codes are free codes we publish in Orefish announcements, including a new code most weeks that unlocks that week's cosmetic drop. Redeem them in the game's Settings under Redeem Code. Codes are always free, never sold, redeem once per player, and never expire, though a weekly code may have an earliest date from which it can be redeemed. No purchase is ever necessary.</p>
@@ -190,15 +190,29 @@
                 <p>Delve Divers is a separate product with its own support, accounts, and policies. Please visit <a href="https://delvedivers.com">delvedivers.com</a> for Delve Divers support; this page and these policies don't cover it.</p>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <div class="faq-number">16</div>
-                    <h3>Is there really a secret hiding in this FAQ?</h3>
-                </div>
-                <p>There is, and you just found it. Enter <strong>LANTERN-SCREE-9147</strong> in One More Push under Settings, Redeem Code, and something nice will happen. It is one of six secrets hiding where Orefish things live: two inside the app, two on this site, and two guarding the golem over at <a href="https://delvedivers.com">delvedivers.com</a>.</p>
-            </div>
         </div>
     </div>
+
+    <!-- A secret: FAQ 8, the one about codes, contains one. Its number is the key. -->
+    <div class="secret-scrim" id="secretScrim">
+        <div class="secret-card" role="dialog" aria-label="A secret code">
+            <h3>The FAQ knew!</h3>
+            <p>The question about codes was holding one all along. Enter this in One More Push under Settings, Redeem Code:</p>
+            <span class="secret-code">LANTERN-SCREE-9147</span>
+            <p class="secret-hint">One of six secrets hiding where Orefish things live.</p>
+            <button class="secret-close" id="secretClose">Keep it secret</button>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const num = document.getElementById('faqSecretNum');
+            const scrim = document.getElementById('secretScrim');
+            if (!num || !scrim) return;
+            num.addEventListener('click', () => scrim.classList.add('open'));
+            document.getElementById('secretClose').addEventListener('click', () => scrim.classList.remove('open'));
+            scrim.addEventListener('click', (e) => { if (e.target === scrim) scrim.classList.remove('open'); });
+        })();
+    </script>
 
     <!-- Footer -->
     <footer>
