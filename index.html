@@ -50,7 +50,7 @@
         <div class="container">
             <div class="profile">
                 <div class="profile-img-container">
-                    <img src="profile.png" alt="Will Humphreys" class="profile-img">
+                    <img src="profile_headshot.jpg" alt="Will Humphreys" class="profile-img">
                 </div>
                 <div class="bio">
                     <h2>Will Humphreys</h2>
@@ -117,16 +117,20 @@
                     <p class="app-tagline">Discover. Adapt. Fight.</p>
                     <p>A roguelike deckbuilder in active development. Build and reshape your deck, adapt to increasingly dangerous monsters, and fight your way toward the Cores.</p>
                     <a href="https://delvedivers.com/" class="app-store-btn">Visit delvedivers.com</a>
-                    <!-- Early-look screenshots: drop dd-1.png / dd-2.png next to this file
-                         and uncomment. Kept here so the main site stays the hub until the
-                         DD site fully opens.
-                    <div class="screenshot-carousel">
-                        <div class="screenshot-container">
-                            <img src="dd-1.png" alt="Delve Divers early screenshot" class="screenshot">
-                            <img src="dd-2.png" alt="Delve Divers early screenshot" class="screenshot">
-                        </div>
+                </div>
+                <div class="screenshot-carousel">
+                    <div class="screenshot-container" id="ddScreens">
+                        <img src="dd-1.png" alt="Delve Divers: battling a crystal golem boss" class="screenshot">
+                        <img src="dd-2.png" alt="Delve Divers screenshot" class="screenshot">
+                        <img src="dd-3.png" alt="Delve Divers screenshot" class="screenshot">
+                        <img src="dd-4.png" alt="Delve Divers screenshot" class="screenshot">
                     </div>
-                    -->
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
                 </div>
             </div>
 
@@ -217,27 +221,28 @@
             }).catch(() => { window.location.href = `mailto:${email}`; });
         }
 
-        // One More Push screenshot carousel
-        (function () {
-            const container = document.getElementById('ompScreens');
+        // Screenshot carousels (One More Push and Delve Divers share the recipe:
+        // dots and swipe are scoped to each carousel's own shell)
+        function initCarousel(containerId) {
+            const container = document.getElementById(containerId);
             if (!container) return;
+            const shell = container.parentElement;
             const slides = container.querySelectorAll('.screenshot');
-            const dots = document.querySelectorAll('.carousel-dots .dot');
+            const dots = shell.querySelectorAll('.carousel-dots .dot');
             let current = 0;
             function go(n) {
                 current = (n + slides.length) % slides.length;
                 container.style.transform = 'translateX(-' + (current * 100) + '%)';
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
             }
-            dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
             let timer = setInterval(() => go(current + 1), 4000);
             function rearm() {
                 clearInterval(timer);
                 timer = setInterval(() => go(current + 1), 6000);
             }
+            dots.forEach((d, i) => d.addEventListener('click', () => { go(i); rearm(); }));
             // Swipe to move ahead and back (touch and mouse drag)
             let startX = null;
-            const shell = container.parentElement;
             shell.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
             shell.addEventListener('touchend', e => {
                 if (startX === null) return;
@@ -252,7 +257,9 @@
                 if (Math.abs(dx) > 40) { go(current + (dx < 0 ? 1 : -1)); rearm(); }
                 startX = null;
             });
-        })();
+        }
+        initCarousel('ompScreens');
+        initCarousel('ddScreens');
     </script>
 </body>
 </html>
