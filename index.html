@@ -93,19 +93,31 @@
                     <!-- Apple's official badge artwork (self-hosted, unmodified), per the App Store marketing guidelines. -->
                     <a href="https://apps.apple.com/app/id6777840856" aria-label="Download One More Push on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" class="app-store-badge"></a>
                 </div>
-                <!-- Launch screenshot set (Aug 2026), mirroring the App Store order:
-                     mini games, treasures, decorate, balance, worlds, the summit awaits. -->
-                <div class="screenshot-carousel">
-                    <div class="screenshot-container" id="ompScreens">
-                        <img src="omp-minigames.jpg" alt="Four mini games between climbs" class="screenshot">
-                        <img src="omp-treasures.jpg" alt="Collect every treasure" class="screenshot">
-                        <img src="omp-decorate.jpg" alt="Decorating a boulder" class="screenshot">
-                        <img src="omp-balance.jpg" alt="The balance challenge at the peak" class="screenshot">
-                        <img src="omp-worlds.jpg" alt="Climb every world" class="screenshot">
-                        <img src="omp-summit.jpg" alt="The summit awaits" class="screenshot">
+                <!-- Launch media (Aug 2026): the transformation preview video first
+                     (tap to play, loads nothing until tapped), then the screenshot set
+                     in the App Store order: mini games, treasures, decorate, balance,
+                     worlds, the summit awaits. -->
+                <div class="carousel-block">
+                    <div class="screenshot-carousel">
+                        <div class="screenshot-container" id="ompScreens">
+                            <div class="screenshot video-slide">
+                                <video playsinline preload="none" poster="omp-preview-poster.jpg"
+                                       src="omp-preview.mp4" aria-label="One More Push preview video"></video>
+                                <button class="video-play" type="button" aria-label="Play the One More Push preview">
+                                    <svg viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5l16 9.5L2 20.5z"/></svg>
+                                </button>
+                            </div>
+                            <img src="omp-minigames.jpg" alt="Four mini games between climbs" class="screenshot">
+                            <img src="omp-treasures.jpg" alt="Collect every treasure" class="screenshot">
+                            <img src="omp-decorate.jpg" alt="Decorating a boulder" class="screenshot">
+                            <img src="omp-balance.jpg" alt="The balance challenge at the peak" class="screenshot">
+                            <img src="omp-worlds.jpg" alt="Climb every world" class="screenshot">
+                            <img src="omp-summit.jpg" alt="The summit awaits" class="screenshot">
+                        </div>
                     </div>
                     <div class="carousel-dots">
                         <span class="dot active"></span>
+                        <span class="dot"></span>
                         <span class="dot"></span>
                         <span class="dot"></span>
                         <span class="dot"></span>
@@ -126,12 +138,14 @@
                     <p>A roguelike deckbuilder in active development. Build and reshape your deck, adapt to increasingly dangerous monsters, and fight your way toward the Cores.</p>
                     <a href="https://delvedivers.com/" class="app-store-btn">Visit delvedivers.com</a>
                 </div>
-                <div class="screenshot-carousel">
-                    <div class="screenshot-container" id="ddScreens">
-                        <img src="dd-1.png" alt="Delve Divers: battling a crystal golem boss" class="screenshot">
-                        <img src="dd-2.png" alt="Delve Divers screenshot" class="screenshot">
-                        <img src="dd-3.png" alt="Delve Divers screenshot" class="screenshot">
-                        <img src="dd-4.png" alt="Delve Divers screenshot" class="screenshot">
+                <div class="carousel-block">
+                    <div class="screenshot-carousel">
+                        <div class="screenshot-container" id="ddScreens">
+                            <img src="dd-1.png" alt="Delve Divers: battling a crystal golem boss" class="screenshot">
+                            <img src="dd-2.png" alt="Delve Divers screenshot" class="screenshot">
+                            <img src="dd-3.png" alt="Delve Divers screenshot" class="screenshot">
+                            <img src="dd-4.png" alt="Delve Divers screenshot" class="screenshot">
+                        </div>
                     </div>
                     <div class="carousel-dots">
                         <span class="dot active"></span>
@@ -234,21 +248,37 @@
         function initCarousel(containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
-            const shell = container.parentElement;
+            const shell = container.parentElement;              // the phone frame
+            const block = shell.parentElement;                  // frame + dots (dots live below the frame now)
             const slides = container.querySelectorAll('.screenshot');
-            const dots = shell.querySelectorAll('.carousel-dots .dot');
+            const dots = block.querySelectorAll('.carousel-dots .dot');
+            const video = container.querySelector('video');     // One More Push's first slide
             let current = 0;
             function go(n) {
                 current = (n + slides.length) % slides.length;
                 container.style.transform = 'translateX(-' + (current * 100) + '%)';
                 dots.forEach((d, i) => d.classList.toggle('active', i === current));
+                if (video && !video.paused) video.pause();      // sliding away stops playback
             }
-            let timer = setInterval(() => go(current + 1), 4000);
+            // Auto-advance holds while the preview video is playing.
+            let timer = setInterval(() => { if (video && !video.paused) return; go(current + 1); }, 4000);
             function rearm() {
                 clearInterval(timer);
-                timer = setInterval(() => go(current + 1), 6000);
+                timer = setInterval(() => { if (video && !video.paused) return; go(current + 1); }, 6000);
             }
             dots.forEach((d, i) => d.addEventListener('click', () => { go(i); rearm(); }));
+            if (video) {
+                const playBtn = shell.querySelector('.video-play');
+                playBtn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    video.play();
+                    rearm();
+                });
+                video.addEventListener('play', () => playBtn.classList.add('playing'));
+                video.addEventListener('pause', () => playBtn.classList.remove('playing'));
+                video.addEventListener('ended', () => { go(current + 1); rearm(); });
+                video.addEventListener('click', () => { if (!video.paused) video.pause(); });
+            }
             // Swipe to move ahead and back (touch and mouse drag)
             let startX = null;
             shell.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });

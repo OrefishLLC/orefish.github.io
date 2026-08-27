@@ -457,25 +457,26 @@ a:hover > .app-store-badge {
     object-fit: cover;
 }
 
+/* The frame plus its dots: the dots sit BELOW the phone frame now (inside, they
+   covered the caption text at the bottom of the store screenshots). */
+.carousel-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
 .carousel-dots {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    z-index: 10;
-    padding: 8px 12px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
 }
 
 .dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.4);
+    background: rgba(0,0,0,0.18);
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -484,6 +485,46 @@ a:hover > .app-store-badge {
     background: var(--secondary);   /* the crest red marks the active slide */
     width: 24px;
     border-radius: 4px;
+}
+
+/* The preview video rides the carousel as its first slide (App Store style):
+   poster until tapped, native inline playback, zero bytes until play. */
+.video-slide {
+    position: relative;
+}
+
+.video-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(10, 15, 20, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-play svg {
+    width: 20px;
+    height: 22px;
+    fill: #fff;
+    margin-left: 3px;
+}
+
+.video-play.playing {
+    display: none;
 }
 
 /* Coming Soon */
