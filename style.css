@@ -1027,3 +1027,112 @@ footer {
         margin-top: 15px;
     }
 }
+
+
+/* Social profiles: the floating follow panel and the footer icon row */
+.social-fab {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.social-fab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.social-fab.open .social-fab-list {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.social-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.social-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.social-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.social-fab-toggle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.social-fab-toggle:hover,
+.social-fab.open .social-fab-toggle {
+    background: var(--secondary);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 18px 0 6px;
+    flex-wrap: wrap;
+}
+
+.footer-socials a {
+    display: flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.08);
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.footer-socials a svg {
+    width: 17px;
+    height: 17px;
+    fill: rgba(255,255,255,0.85);
+}
+
+.footer-socials a:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.footer-socials a:hover svg {
+    fill: #fff;
+}
