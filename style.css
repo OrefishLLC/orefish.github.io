@@ -527,6 +527,53 @@ a:hover > .app-store-badge {
     display: none;
 }
 
+/* Mute toggle: top-right of the video slide, always reachable. Starts muted. */
+.video-mute {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(10, 15, 20, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+}
+
+.video-mute svg {
+    width: 18px;
+    height: 18px;
+}
+
+.video-mute .spk {
+    fill: #fff;
+}
+
+.video-mute .waves path {
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.video-mute .slash {
+    stroke: #fff;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    display: none;
+}
+
+.video-mute.muted .waves {
+    display: none;
+}
+
+.video-mute.muted .slash {
+    display: block;
+}
+
 /* Coming Soon */
 .coming-soon {
     margin-top: 80px;

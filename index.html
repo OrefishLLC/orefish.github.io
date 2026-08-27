@@ -101,10 +101,20 @@
                     <div class="screenshot-carousel">
                         <div class="screenshot-container" id="ompScreens">
                             <div class="screenshot video-slide">
-                                <video playsinline preload="none" poster="omp-preview-poster.jpg"
+                                <video playsinline muted preload="none" poster="omp-preview-poster.jpg"
                                        src="omp-preview.mp4" aria-label="One More Push preview video"></video>
                                 <button class="video-play" type="button" aria-label="Play the One More Push preview">
                                     <svg viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5l16 9.5L2 20.5z"/></svg>
+                                </button>
+                                <button class="video-mute muted" type="button" aria-label="Unmute the preview">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path class="spk" d="M4 9v6h4l5 4V5L8 9H4z"/>
+                                        <g class="waves" fill="none">
+                                            <path d="M16.5 8.5a5 5 0 010 7"/>
+                                            <path d="M19 6a8.5 8.5 0 010 12"/>
+                                        </g>
+                                        <line class="slash" x1="4" y1="20" x2="20" y2="4"/>
+                                    </svg>
                                 </button>
                             </div>
                             <img src="omp-minigames.jpg" alt="Four mini games between climbs" class="screenshot">
@@ -276,8 +286,21 @@
                 });
                 video.addEventListener('play', () => playBtn.classList.add('playing'));
                 video.addEventListener('pause', () => playBtn.classList.remove('playing'));
+                // No loop: one showing, then the carousel moves on to the screenshots.
                 video.addEventListener('ended', () => { go(current + 1); rearm(); });
-                video.addEventListener('click', () => { if (!video.paused) video.pause(); });
+                // Anywhere on the video toggles play and pause (not just the button).
+                video.addEventListener('click', () => {
+                    if (video.paused) { video.play(); } else { video.pause(); }
+                    rearm();
+                });
+                // Starts muted (polite web default); the speaker button flips it.
+                const muteBtn = shell.querySelector('.video-mute');
+                muteBtn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    video.muted = !video.muted;
+                    muteBtn.classList.toggle('muted', video.muted);
+                    muteBtn.setAttribute('aria-label', video.muted ? 'Unmute the preview' : 'Mute the preview');
+                });
             }
             // Swipe to move ahead and back (touch and mouse drag)
             let startX = null;
