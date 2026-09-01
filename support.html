@@ -129,9 +129,9 @@
             <div class="faq-item">
                 <div class="faq-question">
                     <div class="faq-number" id="faqSecretNum">8</div>
-                    <h3>What are promo codes and where do I find them?</h3>
+                    <h3>What are Weekly Drops, and what are the secrets?</h3>
                 </div>
-                <p>Promo codes are free codes we publish in Orefish announcements, including a new code most weeks that unlocks that week's cosmetic drop. Redeem them in the game's Settings under Redeem Code. Codes are always free, never sold, redeem once per player, and never expire, though a weekly code may have an earliest date from which it can be redeemed. No purchase is ever necessary.</p>
+                <p>Every Monday a new cosmetic (a sticker, a band, or a boulder skin) is revealed on the Weekly Drops shelf of the in-game Pebbles Shop (open Decorate, then the Pebbles shop). Drops are bought with Pebbles like any other shop item: one purchase, unlimited placement, yours forever. Once a drop lands it never leaves the shelf, so late players miss nothing. All weekly content ships inside the app and unlocks by the calendar; nothing is downloaded and nothing unlocks from outside the game. The game also hides six secrets: small in-game deeds that each grant Pebbles once. Their hints live on the Achievements board.</p>
             </div>
 
             <div class="faq-item">
@@ -193,13 +193,15 @@
         </div>
     </div>
 
-    <!-- A secret: FAQ 8, the one about codes, contains one. Its number is the key. -->
+    <!-- A secret: FAQ 8, the one about drops and secrets, holds one. Its number is
+         the key. It reveals a DEED to do inside the game (the game grants the
+         reward on the spot); nothing on this page unlocks anything. -->
     <div class="secret-scrim" id="secretScrim">
-        <div class="secret-card" role="dialog" aria-label="A secret code">
+        <div class="secret-card" role="dialog" aria-label="A secret">
             <h3>The FAQ knew!</h3>
-            <p>The question about codes was holding one all along. Enter this in One More Push under Settings, Redeem Code:</p>
+            <p>Eight questions deep, and the question about secrets was holding one all along. Here is what to do:</p>
             <span class="secret-code"></span>
-            <p class="secret-hint">One of six secrets hiding where Orefish things live.</p>
+            <p class="secret-hint">One of six secrets hiding where Orefish things live. Every one is a deed done inside One More Push.</p>
             <button class="secret-close" id="secretClose">Keep it secret</button>
         </div>
     </div>
@@ -210,7 +212,7 @@
             if (!num || !scrim) return;
             num.addEventListener('click', () => {
                 // decoded only on discovery (kept out of the raw page source)
-                scrim.querySelector('.secret-code').textContent = atob('TEFOVEVSTi1TQ1JFRS05MTQ3');
+                scrim.querySelector('.secret-code').textContent = atob('SW4gT25lIE1vcmUgUHVzaCwgb3BlbiB0aGUgQ29sbGVjdGlvbiBhbmQgdGFwIHRoZSBjb2xsZWN0ZWQgdGFsbHkgZWlnaHQgdGltZXMu');
                 scrim.classList.add('open');
             });
             document.getElementById('secretClose').addEventListener('click', () => scrim.classList.remove('open'));

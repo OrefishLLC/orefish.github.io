@@ -244,27 +244,29 @@
         </div>
     </footer>
 
-    <!-- A secret: the One More Push icon knows something. -->
+    <!-- A secret: the One More Push icon knows something. It reveals a DEED to do
+         inside the game (the game grants the reward on the spot); nothing on this
+         page unlocks anything. -->
     <div class="secret-scrim" id="secretScrim">
-        <div class="secret-card" role="dialog" aria-label="A secret code">
+        <div class="secret-card" role="dialog" aria-label="A secret">
             <h3>You found a secret!</h3>
-            <p>The Boulder appreciates a curious mind. Enter this code in One More Push under Settings, Redeem Code:</p>
+            <p>The Boulder appreciates a curious mind. Its thanks wait inside the game. Here is what to do:</p>
             <span class="secret-code"></span>
-            <p class="secret-hint">One of six secrets hiding where Orefish things live: two inside the app, two on this site, two guarding the golem at delvedivers.com.</p>
+            <p class="secret-hint">One of six secrets hiding where Orefish things live: two inside the app, two on this site, two guarding the golem at delvedivers.com. Every one is a deed done inside One More Push.</p>
             <button class="secret-close" id="secretClose">Keep it secret</button>
         </div>
     </div>
 
     <script>
-        // The OMP icon knows something (one of six hidden codes).
+        // The OMP icon knows something (one of six hidden secrets).
         (function () {
             const icon = document.getElementById('ompSecretIcon');
             const scrim = document.getElementById('secretScrim');
             if (!icon || !scrim) return;
             icon.addEventListener('click', () => {
-                // decoded only on discovery, so the code never sits in the
+                // decoded only on discovery, so the deed never sits in the
                 // page source for view-source readers or search crawlers
-                scrim.querySelector('.secret-code').textContent = atob('TU9TUy1USURFLTQ4MjE=');
+                scrim.querySelector('.secret-code').textContent = atob('T24gdGhlIGhvbWUgc2NyZWVuIG9mIE9uZSBNb3JlIFB1c2gsIHRhcCB5b3VyIFBlYmJsZSBjb3VudCBzZXZlbiB0aW1lcy4=');
                 scrim.classList.add('open');
             });
             document.getElementById('secretClose').addEventListener('click', () => scrim.classList.remove('open'));
